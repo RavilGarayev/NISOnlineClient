@@ -11,7 +11,7 @@
         active-text-color="#ffd04b">
         <el-menu-item index="/" >Главная страница</el-menu-item>        
         <el-menu-item index="/list">Кабинет ученика</el-menu-item>
-        <el-menu-item index="/task">Кабинет учителя</el-menu-item>
+        <el-menu-item index="/task">Констурктор тестов</el-menu-item>
         </el-menu>
     </div>  
 </template>     
