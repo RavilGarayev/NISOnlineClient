@@ -6,10 +6,24 @@
       <div class="card center">
 
           <div>
-            <el-select placeholder="Выберите предмет" style="width: 250px; margin-top: 10px;"></el-select  >                
+            <el-select v-model="idSubject" placeholder="Выберите предмет">
+              <el-option
+                v-for="item in studySubjectName"
+                :key="item.id"
+                :label="item.nameRU"
+                :value="item.id">
+              </el-option>
+            </el-select  >                
           </div>
           <div>
-            <el-select placeholder="Выберите тип теста" style="width: 250px; margin-top: 10px;"></el-select  >                
+            <el-select v-model="idTest" placeholder="Выберите тип теста">
+              <el-option
+                v-for="item in testTypesArr"
+                :key="item.id"
+                :label="item.nameRU"
+                :value="item.id">
+              </el-option>
+            </el-select>                
           </div>
 
           <div>
@@ -37,7 +51,11 @@ export default {
     Answer_1: "",
     Answer_2: "",
     Answer_3: "",
-    Answer_4: ""
+    Answer_4: "",
+    testTypesArr: '', 
+    studySubjectName: '',
+    idTest: '',
+    idSubject: ''
   }),
   methods: {
       saveAPI() {
@@ -45,8 +63,8 @@ export default {
 
           const res = {
               QuestionRU: this.QuestionRU,
-              StudySubjectNameID: 1,
-              TestTypeID: 1,
+              StudySubjectNameID: this.idSubject,
+              TestTypeID: this.idTest,
               AnswerTestData: [
                 { AnswerRU: this.Answer_1, IsTrue: true},
                 { AnswerRU: this.Answer_2, IsTrue: false},
@@ -54,7 +72,6 @@ export default {
                 { AnswerRU: this.Answer_4, IsTrue: false}
               ]           
           }
-          console.log(res);
 
           axios.post('http://localhost:56026/api/questiontest', res)
             .then((response) => {
@@ -64,12 +81,28 @@ export default {
               this.Answer_2 = ""
               this.Answer_3 = ""
               this.Answer_4 = ""
+              this.idTest = ''
+              this.idSubject = ''
               alert("Успешно");
             })
             .catch((error) => {
               console.log(error);
             });
         }
+  },
+  mounted: function(){
+        axios.get('http://localhost:56026/api/QuestionTest/dicTestTypes').then(res => {
+                this.testTypesArr = res.data;
+            })
+            .catch((error) => {
+              console.log(error);
+        });
+         axios.get('http://localhost:56026/api/QuestionTest/dicStudySubjectName').then(res => {
+              this.studySubjectName = res.data;
+          })
+          .catch((error) => {
+            console.log(error);
+        });
   }
 }
 </script>
