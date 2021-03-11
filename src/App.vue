@@ -2,18 +2,18 @@
   <div id="app">
     <Navbar />
     <div class="container">
-      <router-view/>
+      <router-view />
     </div>
-  </div>  
+  </div>
 </template>
 
 <script>
-  import Navbar from './components/Navbar.vue'
-  export default {
-    components: {Navbar}
-  }
+import Navbar from "./components/Navbar.vue";
+export default {
+  components: { Navbar },
+};
 </script>
 
 <style lang="scss">
-  @import "~element-plus/lib/theme-chalk/index.css"   
+@import "~element-plus/lib/theme-chalk/index.css";
 </style>
