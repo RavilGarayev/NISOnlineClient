@@ -1,6 +1,18 @@
 <template>
   <div>  
     <h1>Тест API</h1>
+
+  <el-input type="textarea" :rows="6" :resize="none"  placeholder="Введите логин" style="width: 250px;" v-model="saveLogin"></el-input ><hr/>
+
+   <el-input type="textarea" :autosize="{ minRows: 2, maxRows: 2}"  placeholder="Введите логин" style="width: 250px;" v-model="saveLogin"></el-input ><hr/>
+
+  <el-input placeholder="Введите логин" style="width: 250px;" v-model="saveLogin"></el-input >
+
+<el-input placeholder="Введите логин" style="width: 250px;" v-model="saveLogin"></el-input >
+
+    
+
+    
   <div class="container pt-5" id="app" v-cloak>
         <div class="card center">
 
