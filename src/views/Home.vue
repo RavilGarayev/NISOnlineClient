@@ -4,7 +4,7 @@
   <div class="container pt-5" id="app" v-cloak>
         <div class="card center">
 
-            <el-button class="primary" v-on:click="getTestAPI()">Получить всех пользователей</el-button>
+            <el-button type="success" plain v-on:click="getTestAPI()">Получить всех пользователей</el-button>
             <ul>
                 <li v-for="(item, index) in info" :key="index">
                     {{ index + 1 }} - {{ item.id }} {{ item.login }} - {{ item.password }}
@@ -13,7 +13,7 @@
             <hr/>
 
             <div>
-                <el-input  placeholder="Введите номер" v-model="viewID" style="width: 250px; margin-top: 10px;"></el-input >
+                <el-input  placeholder="Введите номер" v-model="viewID" style="width: 250px; height: 150px; margin-top: 10px;"></el-input >
             </div>
             <el-button class="primary" v-on:click="getTestAPIOne()">Получить одного пользователя</el-button>
             <div>
@@ -65,15 +65,35 @@
     }),
     methods:{
         getTestAPI() {
-            alert("Получить?");
-            axios.get('http://localhost:56026/api/users').then(res => {
-                this.info = res.data;
-                console.log(res.data);
-                alert("Успешно");
+
+          alert("Сохранить?");        
+
+          const res = {
+              Password: "123",
+              UserTypeID: 1,
+              PersonObj: {ID: 1, LastName:"sdfsdfsdf", IIN: "1235466", Foto: "sadsadasd"},
+              SchoolboyUsersObj: {ID: 1, ClassID: 1}
+          }
+          console.log(res);
+
+          axios.post('http://localhost:56026/api/autorization/saveschoolboyuser', res)
+            .then((response) => {             
+              alert("Успешно");
             })
             .catch((error) => {
               console.log(error);
-          });
+            }); 
+
+
+          //   alert("Получить?");
+          //   axios.get('http://localhost:56026/api/users').then(res => {
+          //       this.info = res.data;
+          //       console.log(res.data);
+          //       alert("Успешно");
+          //   })
+          //   .catch((error) => {
+          //     console.log(error);
+          // });
         },        
         getTestAPIOne() {
             alert("Получить?");
@@ -100,11 +120,16 @@
           alert("Сохранить?");        
 
           const str = {
-              Login: this.saveLogin,
-              Password: parseInt(this.savePassword)
+              Password: "sadasdasdasd",
+              Login: "sdsdfsdfsd"
+              // IsSchoolboy: false,
+              // PersonObj: {LastName: "sdfsdfsdfsd"},
+              // SchoolboyUsersObj: {}
           }
 
-          axios.post('http://localhost:56026/api/users', str)
+          console.log(str);
+
+           axios.post('http://localhost:56026/api/autorization/adautorization', str)
             .then((response) => {
               console.log(response);
               alert("Успешно");
@@ -112,6 +137,15 @@
             .catch((error) => {
               console.log(error);
             });
+
+          // axios.post('http://localhost:56027/api/autorization/saveschoolboyuser', str)
+          //   .then((response) => {
+          //     console.log(response);
+          //     alert("Успешно");
+          //   })
+          //   .catch((error) => {
+          //     console.log(error);
+          //   });
         },
         putTestAPI() {
           alert("Обновить?");
