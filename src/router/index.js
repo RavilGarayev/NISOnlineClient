@@ -1,14 +1,10 @@
-import {
-  createRouter,
-  createWebHistory
-} from 'vue-router'
+import { createRouter, createWebHistory } from 'vue-router'
 import Home from '../views/Home.vue'
 import List from '../views/List.vue'
 import Task from '../views/Task.vue'
-import Auth from '../views/Auth.vue'
-import Registration from '../views/Registration.vue'
 
-const routes = [{
+const routes = [
+  {
     path: '/',
     name: 'Home',
     component: Home
@@ -22,16 +18,6 @@ const routes = [{
     path: '/task',
     name: 'task',
     component: Task
-  },
-  {
-    path: '/auth',
-    name: 'auth',
-    component: Auth
-  },
-  {
-    path: '/registration',
-    name: 'registration',
-    component: Registration
   }
 ]
 

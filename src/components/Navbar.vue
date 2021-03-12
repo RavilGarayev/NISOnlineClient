@@ -12,26 +12,25 @@
         <el-menu-item index="/" >Главная страница</el-menu-item>        
         <el-menu-item index="/list">Кабинет ученика</el-menu-item>
         <el-menu-item index="/task">Конструктор тестов</el-menu-item>
-        <el-menu-item index="/auth">Authorization</el-menu-item>
-        <el-menu-item index="/registration">Registration</el-menu-item>
         </el-menu>
     </div>  
 </template>     
 
 <script>
 export default {
-  data() {
-    return {
-      activeIndex2: "1"
-    };
-  },
-  methods: {
-    handleSelect(key, keyPath) {
-      console.log(key, keyPath);
+    data() {
+      return {
+        activeIndex2: '1'
+      };
+    },
+    methods: {
+      handleSelect(key, keyPath) {
+        console.log(key, keyPath);
+      }
     }
-  }
-};
+}
 </script>
 
 <style lang="scss" scoped>
+
 </style>
