@@ -1,6 +1,7 @@
 <template>
   <div id="app">
-    <Navbar />
+    <!-- <Navbar /> -->
+    <CloseTest />
     <div class="container">
       <router-view />
     </div>
@@ -8,12 +9,13 @@
 </template>
 
 <script>
-import Navbar from "./components/Navbar.vue";
+// import Navbar from "./components/Navbar.vue";
+import CloseTest from "./components/CloseTest.vue";
 export default {
-  components: { Navbar },
+  components: { CloseTest },
 };
 </script>
 
-<style lang="scss">
+<style>
 @import "~element-plus/lib/theme-chalk/index.css";
 </style>
