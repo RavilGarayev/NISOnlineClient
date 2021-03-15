@@ -9,9 +9,10 @@
         background-color="#545c64"
         text-color="#fff"
         active-text-color="#ffd04b">
-        <el-menu-item index="/" >Главная страница</el-menu-item>        
-        <el-menu-item index="/list">Кабинет ученика</el-menu-item>
+        <el-menu-item index="/" >Главная страница</el-menu-item>    
         <el-menu-item index="/task">Конструктор тестов</el-menu-item>
+        <el-menu-item index="/auth">Авторизация</el-menu-item>
+        <el-menu-item index="/registration">Регистрация</el-menu-item>
         </el-menu>
     </div>  
 </template>     
