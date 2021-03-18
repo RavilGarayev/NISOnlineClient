@@ -15,7 +15,13 @@
 </el-input>
 <el-input placeholder="Пароль" class="Authorization__Inputs" v-model="password" show-password></el-input>
  <el-button class="Auth__Btn" type="primary" @click="saveCloseTest">Вход</el-button>
- <el-button class="Reg__Btn" @click="beforAuth" type="text">Зарегистрироваться</el-button>
+ 
+  <keep-alive>
+    <router-link :to="{name: 'registration'}"> 
+      <el-button class="Reg__Btn" type="text">Зарегистрироваться</el-button>
+    </router-link>
+  </keep-alive>
+  
 </div>
 <div class="AuthImgBg"></div>
   </div>

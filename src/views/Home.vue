@@ -4,6 +4,10 @@
   <div class="container pt-5" id="app" v-cloak>
         <div class="card center">
 
+          <router-link :to="{name: 'auth'}"> 
+              <el-button type="success">Авторизация</el-button>
+          </router-link>
+
             <el-button type="success" plain v-on:click="getTestAPI()">Получить всех пользователей</el-button>
             <ul>
                 <li v-for="(item, index) in info" :key="index">
