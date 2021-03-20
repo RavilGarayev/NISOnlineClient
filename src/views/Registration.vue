@@ -125,7 +125,7 @@
         </div>
 
         <el-button class="Registration__Back" @click="nextPage"><i class="el-icon-arrow-left"></i></el-button>
-        <el-button class="Registration__Send">Готово</el-button>
+        <el-button class="Registration__Send" v-on:click="saveSchoolboyUser()">Готово</el-button>
 
     </div>
 
@@ -198,6 +198,9 @@ export default {
       this.page_count = !this.page_count;
       this.page_count_reverse = !this.page_count_reverse;
     },
+    saveSchoolboyUser(){
+      this.$router.push('/main');
+    },
     getTestAPI() {
       alert("Получить?");
       axios
@@ -248,24 +251,6 @@ export default {
         .then(response => {
           console.log(response);
           alert("Успешно");
-        })
-        .catch(error => {
-          console.log(error);
-        });
-    },
-    putTestAPI() {
-      alert("Обновить?");
-      const data = {
-        ID: parseInt(this.putID),
-        Login: this.putLogin,
-        Password: parseInt(this.putPassword)
-      };
-
-      axios
-        .put("http://localhost:56026/api/users", data)
-        .then(response => {
-          alert("Успешно");
-          console.log(response);
         })
         .catch(error => {
           console.log(error);

@@ -14,7 +14,7 @@
   clearable>
 </el-input>
 <el-input placeholder="Пароль" class="Authorization__Inputs" v-model="password" show-password></el-input>
- <el-button class="Auth__Btn" type="primary" @click="saveCloseTest">Вход</el-button>
+ <el-button class="Auth__Btn" type="primary" @click="getAuthAd">Вход</el-button>
  
   <keep-alive>
     <router-link :to="{name: 'registration'}"> 
@@ -39,110 +39,30 @@ export default {
     };
   },
   data: () => ({
-    info: null,
     login: "",
     password: "",
-    saveLogin: "",
-    savePassword: "",
-    putID: "",
-    deleteID: "",
-    viewID: "",
-    putLogin: "",
-    putPassword: "",
     picturSrc:
       "https://cube.elemecdn.com/6/94/4d3ea53c084bad6931a56d5158a48jpeg.jpeg"
   }),
-  methods: {
-    getTestAPI() {
-      alert("Получить?");
-      axios
-        .get("http://localhost:56026/api/users")
-        .then(res => {
-          this.info = res.data;
-          console.log(res.data);
-          alert("Успешно");
-        })
-        .catch(error => {
-          console.log(error);
-        });
-    },
-    getTestAPIOne() {
-      alert("Получить?");
-      axios
-        .get("http://localhost:56026/api/users/" + this.viewID)
-        .then(resOne => {
-          this.login = resOne.data.login;
-          this.password = resOne.data.password;
-          alert("Успешно");
-        })
-        .catch(error => {
-          console.log(error);
-        });
-    },
-    deleteTestAPI() {
-      alert("Удалить?");
-      axios
-        .delete("http://localhost:56026/api/users/" + this.deleteID)
-        .then(resDel => {
-          console.log(resDel);
-          alert("Успешно");
-        })
-        .catch(error => {
-          console.log(error);
-        });
-    },
-    postTestAPI() {
-      alert("Сохранить?");
-      const str = {
-        Login: this.login,
-        Password: parseInt(this.password)
-      };
+  methods: {   
+    getAuthAd() {
 
-      axios
-        .post("http://10.3.0.236:8880/api/Autorization/saveSchoolboyUser", str)
-        .then(response => {
-          console.log(response);
-          alert("Успешно");
-        })
-        .catch(error => {
-          console.log(error);
-        });
-    },
-    saveCloseTest() {
-      const str = {
-        IIN: "true"
-      };
-      axios
-        .post("http://10.3.0.236:8880/api/Autorization/saveSchoolboyUser", str)
-        .then(response => {
-          console.log(response);
-          alert("Успешно");
-        })
-        .catch(error => {
-          console.log(error);
-        });
-    },
-    beforAuth() {
-      window.open("registration", "_blank");
-    },
-    putTestAPI() {
-      alert("Обновить?");
-      const data = {
-        ID: parseInt(this.putID),
-        Login: this.putLogin,
-        Password: parseInt(this.putPassword)
-      };
+      this.$router.push('/main');
 
-      axios
-        .put("http://localhost:56026/api/users", data)
-        .then(response => {
-          alert("Успешно");
-          console.log(response);
-        })
-        .catch(error => {
-          console.log(error);
-        });
-    }
+      // const str = {
+      //   login: this.login,
+      //   password: this.password
+      // };
+      // axios
+      //   .post("http://10.3.0.236:8880/api/Autorization/ADAutorization", str)
+      //   .then(response => {
+      //     console.log(response);
+      //     alert("Успешно");
+      //   })
+      //   .catch(error => {
+      //     console.log(error);
+      //   });
+    },
   }
 };
 </script>
@@ -168,7 +88,7 @@ export default {
   left: 108px;
   width: 194px;
   height: 39px;
-  background: url("../assets/image/NisLogo.png") center no-repeat;
+  background: url("../assets//image/NisLogo.png") center no-repeat;
   background-size: cover;
 }
 
